@@ -1,4 +1,4 @@
-import useRouterLite from "./lib/useRouterLite";
+import useRouterLite from "@bdub/router-lite";
 
 import Home from "./Home";
 import Test from "./Test";
