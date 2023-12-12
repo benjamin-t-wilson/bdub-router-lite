@@ -4,6 +4,11 @@ const useRouterLite = (routes) => {
   const [renderedElement, setRenderedElement] = useState(routes[0].action());
   const navigateTo = (path) => (window.location.pathname = path);
 
+  const asyncSetRenderedElement = async (action, data) => {
+    const element = await action(data);
+    setRenderedElement(element);
+  };
+
   useEffect(() => {
     const path = window.location.pathname;
     const pathArr = path.split("/");
@@ -40,14 +45,9 @@ const useRouterLite = (routes) => {
     }
 
     if (matchingRoute) {
-      setRenderedElement(
-        matchingRoute.action({
-          params,
-          navigateTo,
-        })
-      );
+      asyncSetRenderedElement(matchingRoute.action, { params, navigateTo });
     } else {
-      setRenderedElement(routes[0].action({ navigateTo }));
+      asyncSetRenderedElement(routes[0].action, { navigateTo });
     }
   }, [window.location.pathname]);
 
