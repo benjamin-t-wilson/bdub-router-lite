@@ -2,6 +2,11 @@
 This library includes a single, simple hook for routing in React
 ***
 ### How to use
+Install the library using npm or yarn
+```
+yarn add @bdub/router-lite
+npm i @bdub/router-lite
+```
 
 There is an example in App.jsx in this repo, but the code is simple to implement. First, import the hook
 `import useRouterLite from "@bdub/router-lite";`
