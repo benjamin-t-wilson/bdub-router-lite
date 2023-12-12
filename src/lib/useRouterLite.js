@@ -33,6 +33,7 @@ const useRouterLite = (routes) => {
             continue;
           } else {
             confirmedPath = false;
+            params = {};
             break;
           }
         }
