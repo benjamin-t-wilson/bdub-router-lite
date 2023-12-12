@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import useRouterLite from "./lib/useRouterLite";
+
+import Home from "./Home";
+import Test from "./Test";
+import Extra from "./Extra";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const routes = [
+    { path: "/", action: (data) => <Home {...data} /> },
+    { path: "/test/extra", action: (data) => <Extra {...data} /> },
+    {
+      path: "/test/:id",
+      action: (data) => <Test {...data} />,
+    },
+  ];
+
+  const renderedElement = useRouterLite(routes);
+
+  return renderedElement;
 }
 
 export default App;
