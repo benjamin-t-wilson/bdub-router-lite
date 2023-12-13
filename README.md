@@ -57,3 +57,8 @@ Declare the route as follows:
 },
 ```
 The result of the async function is available as `props.message` in the component
+***
+### How to pass arguments with navigateTo
+Pass a second argument to navigateTo in the shape of an object
+`props.navigateTo("/foobar", { foo: "bar" })`
+This will temporarily use localStorage for passing state. `foo` will be available under `props.state.foo`
